@@ -7,7 +7,7 @@ string NaturalsNumbers(int M, int N)
 // Найти сумму элементов от M до N, N и M заданы
 int SumElements(int M, int N)
 {
-    if (M == N) return 0;
+    if (M == N) return N;
     else return N + SumElements(M, N - 1);
 }
 // Написать программу возведения числа А в целую стень B
@@ -15,6 +15,13 @@ int DegreeNumber(int A, int B)
 {
     if (B == 0) return 1;
     else return (A * (DegreeNumber(A, B - 1)));
+}
+// Написать программу вычисления функции Аккермана
+int AckermannFunction(int numberM, int numberN)
+{
+    if(numberM==0)return numberN+1;
+    else if(numberN==0&& numberM!=0)return AckermannFunction(numberM-1, 1);
+    else return AckermannFunction(numberM-1, AckermannFunction(numberM, numberN-1));
 }
 
 Console.WriteLine("Показать натуральные числа от M до N");
@@ -39,3 +46,11 @@ int pwr = DegreeNumber(A, B);
 Console.WriteLine($"Число {A} в степени {B} равно {pwr}");
 Console.ReadKey();
 Console.Clear();
+
+
+Console.WriteLine("Написать программу вычисления функции Аккермана");
+Console.Write("Введите неотрицательное число M: ");
+int numberM = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Введите неотрицательное число N: ");
+int numberN = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine(AckermannFunction(numberM, numberN));
