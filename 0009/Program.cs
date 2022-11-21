@@ -1,14 +1,20 @@
 ﻿// Показать натуральные числа от M до N, N и M заданы
 string NaturalsNumbers(int M, int N)
 {
-    if(M<=N)return NaturalsNumbers(M, N-1)+$"{N} ";
-    else return" ";
+    if (M <= N) return NaturalsNumbers(M, N - 1) + $"{N} ";
+    else return " ";
 }
 // Найти сумму элементов от M до N, N и M заданы
 int SumElements(int M, int N)
 {
-    if(M==N)return 0;
-    else return N+SumElements(M, N-1);
+    if (M == N) return 0;
+    else return N + SumElements(M, N - 1);
+}
+// Написать программу возведения числа А в целую стень B
+int DegreeNumber(int A, int B)
+{
+    if (B == 0) return 1;
+    else return (A * (DegreeNumber(A, B - 1)));
 }
 
 Console.WriteLine("Показать натуральные числа от M до N");
@@ -19,7 +25,17 @@ int N = int.Parse(Console.ReadLine() ?? "0");
 NaturalsNumbers(M, N);
 Console.WriteLine(NaturalsNumbers(M, N));
 
-int sum = SumElements( M, N);
+int sum = SumElements(M, N);
 Console.WriteLine($"Сумма элементов от {M} до {N} равна {sum}");
+Console.ReadKey();
+Console.Clear();
+
+Console.WriteLine("Написать программу возведения числа А в целую стень B");
+Console.Write("Введите число A: ");
+int A = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Введите число B: ");
+int B = int.Parse(Console.ReadLine() ?? "0");
+int pwr = DegreeNumber(A, B);
+Console.WriteLine($"Число {A} в степени {B} равно {pwr}");
 Console.ReadKey();
 Console.Clear();
