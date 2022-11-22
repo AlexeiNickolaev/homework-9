@@ -23,7 +23,13 @@ int AckermannFunction(int numberM, int numberN)
     else if(numberN==0&& numberM!=0)return AckermannFunction(numberM-1, 1);
     else return AckermannFunction(numberM-1, AckermannFunction(numberM, numberN-1));
 }
-
+// Написать программу показывающие первые N чисел, для которых каждое следующее равно 
+// сумме двух предыдущих Первые два элемента последовательности задаются пользователем.
+string Numbers(int numA, int numB, int numN)
+{
+    if(numN>=0)return $"{numA} "+Numbers(numB, numA+numB, numN-1);
+    return string.Empty;
+}
 Console.WriteLine("Показать натуральные числа от M до N");
 Console.Write("Введите число M: ");
 int M = int.Parse(Console.ReadLine() ?? "0");
@@ -54,3 +60,14 @@ int numberM = int.Parse(Console.ReadLine() ?? "0");
 Console.Write("Введите неотрицательное число N: ");
 int numberN = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine(AckermannFunction(numberM, numberN));
+Console.ReadKey();
+Console.Clear();
+
+Console.WriteLine("Написать программу показывающие первые N чисел, для которых каждое следующее равно сумме двух предыдущих");
+Console.Write("Введите число A: ");
+int numA = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Введите число B: ");
+int numB = int.Parse(Console.ReadLine() ?? "0");
+Console.Write("Введите число N: ");
+int numN = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine(Numbers(numA, numB, numN));
