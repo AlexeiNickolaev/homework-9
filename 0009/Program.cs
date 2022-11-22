@@ -19,15 +19,15 @@ int DegreeNumber(int A, int B)
 // Написать программу вычисления функции Аккермана
 int AckermannFunction(int numberM, int numberN)
 {
-    if(numberM==0)return numberN+1;
-    else if(numberN==0&& numberM!=0)return AckermannFunction(numberM-1, 1);
-    else return AckermannFunction(numberM-1, AckermannFunction(numberM, numberN-1));
+    if (numberM == 0) return numberN + 1;
+    else if (numberN == 0 && numberM != 0) return AckermannFunction(numberM - 1, 1);
+    else return AckermannFunction(numberM - 1, AckermannFunction(numberM, numberN - 1));
 }
 // Написать программу показывающие первые N чисел, для которых каждое следующее равно 
 // сумме двух предыдущих Первые два элемента последовательности задаются пользователем.
 string Numbers(int numA, int numB, int numN)
 {
-    if(numN>=0)return $"{numA} "+Numbers(numB, numA+numB, numN-1);
+    if (numN >= 0) return $"{numA} " + Numbers(numB, numA + numB, numN - 1);
     return string.Empty;
 }
 Console.WriteLine("Показать натуральные числа от M до N");
